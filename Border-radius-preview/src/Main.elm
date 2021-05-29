@@ -87,25 +87,73 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div[] [
-    div 
-      [ style "width" "200px" 
-      , style "height" "200px" 
-      , style "margin" "5px" 
-      , style "padding" "10px" 
-      , style "border" "1px"
-      , style "solid" "black"
-      , style "background-color" "black"
-      , style "border-top-left-radius" (String.fromInt model.topLeft ++ "px")
-      , style "border-top-right-radius" (String.fromInt model.topRight ++ "px")
-      , style "border-bottom-left-radius" (String.fromInt model.bottomLeft ++ "px")
-      , style "border-bottom-right-radius" (String.fromInt model.bottomRight ++ "px")
-      ] 
-      [ text "" ] 
-    , div [][ input [ type_ "text", placeholder "top-left", value (String.fromInt model.topLeft), onInput TopLeft  ][]]
-    , div [][ input [ type_ "text", placeholder "top-right", value (String.fromInt model.topRight), onInput TopRight ][]]
-    , div [][ input [ type_ "text", placeholder "bottom-left", value (String.fromInt model.bottomLeft), onInput BottomLeft ][]]
-    , div [][ input [ type_ "text", placeholder "bottom-right", value (String.fromInt model.bottomRight), onInput BottomRight ][]]
+  div[ style "width" "650px"
+     , style "margin" "50px"
+     , style "position" "relative"
+     ] [
+    div [ class "input-top-left"
+        , style "display" "inline"
+        , style "width" "50px"
+        , style "padding-right" "250px"
+        , style "top" "-2px"
+        , style "left" "-115px"
+        , style "text-align" "left"
+        ][ input [ style "width" "25px"
+                 , type_ "text"
+                 , placeholder "top-left"
+                 , value (String.fromInt model.topLeft)
+                 , onInput TopLeft ][]]
+    , div [ class "input-top-right"
+          , style "display" "inline"
+          , style "width" "50px"
+          , style "padding-left" "250px"
+          , style "top" "-2px"
+          , style "right" "-115px"
+          , style "text-align" "right"
+          ][ input [ style "width" "25px"
+           , type_ "text"
+           , placeholder "top-right"
+           , value (String.fromInt model.topRight)
+           , onInput TopRight ][]]
+    , div [ style "width" "500px" 
+          , style "height" "200px" 
+          , style "margin" "5px" 
+          , style "padding" "10px" 
+          , style "border" "2px"
+          , style "solid" "black"
+          , style "background-color" "#e9eaee"
+          , style "text-align" "center"
+          , style "border-top-left-radius" (String.fromInt model.topLeft ++ "px")
+          , style "border-top-right-radius" (String.fromInt model.topRight ++ "px")
+          , style "border-bottom-left-radius" (String.fromInt model.bottomLeft ++ "px")
+          , style "border-bottom-right-radius" (String.fromInt model.bottomRight ++ "px")
+          ] [ div[] [text ("border-top-left-radius: " ++ (String.fromInt model.topLeft) ++"px")]
+            , div[] [text ("border-top-right-radius: " ++ (String.fromInt model.topRight) ++"px")]
+            , div[] [text ("border-bottom-left-radius: " ++ (String.fromInt model.bottomLeft) ++"px")]
+            , div[] [text ("border-bottom-right-radius: " ++ (String.fromInt model.bottomRight) ++"px")]
+          ]
+    , div [ class "input-bottom-left" 
+          , style "display" "inline"
+          , style "width" "50px"
+          , style "padding-right" "250px"
+          , style "bottom" "-2px"
+          , style "left" "-115px"
+          , style "text-align" "left"
+          ][ input [ style "width" "25px" 
+           , type_ "text"
+           , placeholder "bottom-left"
+           , value (String.fromInt model.bottomLeft)
+           , onInput BottomLeft ][]]
+    , div [ class "input-bottom-right"
+          , style "display" "inline"
+          , style "width" "50px"
+          , style "padding-left" "250px"
+          , style "bottom" "-2px"
+          , style "right" "-115px"
+          , style "text-align" "right"
+          ][ input [ style "width" "25px"
+           , type_ "text"
+           , placeholder "bottom-right"
+           , value (String.fromInt model.bottomRight)
+           , onInput BottomRight ][]]
     ]
-
-
