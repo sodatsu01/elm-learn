@@ -10,3 +10,6 @@
 -   [ ] User can change the size of any circle in the row
 -   [ ] User can specify the number of rows to be included in the display. From
         one to seven rows can be chosen
+
+## 参考(というかelmで書いただけのほぼコピー)
+https://codepen.io/irfanezani_/pen/mdeLpKo

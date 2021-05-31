@@ -40,4 +40,13 @@ update msg model =
 
 view : Model -> Html Msg
 view model = 
-  Styles.darkMain [Styles.utilities]
+  Styles.darkMain [ 
+     Styles.mainArea [
+        div [ Styles.onCircle1 Styles.redString, Styles.circleStyle][]
+      , div [ Styles.onCircle2 Styles.yellowString, Styles.circleStyle][]
+      , div [ Styles.onCircle1 Styles.blueString, Styles.circleStyle][]
+      , div [ Styles.onCircle2 Styles.greenString, Styles.circleStyle][]
+      , div [ Styles.offCircle, Styles.circleStyle][]
+      ]
+   , Styles.utilities
+   ]
