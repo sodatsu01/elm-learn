@@ -41,12 +41,22 @@ update msg model =
 view : Model -> Html Msg
 view model = 
   Styles.darkMain [ 
-     Styles.mainArea [
-        div [ Styles.onCircle1 Styles.redString, Styles.circleStyle][]
+     Styles.mainArea (viewCircles model)
+   , Styles.utilities
+   ]
+
+viewCircles : Model -> List (Html msg)
+viewCircles model =
+  case model.turnOn of
+    True -> 
+      [ div [ Styles.onCircle1 Styles.redString, Styles.circleStyle][]
       , div [ Styles.onCircle2 Styles.yellowString, Styles.circleStyle][]
       , div [ Styles.onCircle1 Styles.blueString, Styles.circleStyle][]
       , div [ Styles.onCircle2 Styles.greenString, Styles.circleStyle][]
+      ]
+    False ->
+      [ div [ Styles.offCircle, Styles.circleStyle][]
+      , div [ Styles.offCircle, Styles.circleStyle][]
+      , div [ Styles.offCircle, Styles.circleStyle][]
       , div [ Styles.offCircle, Styles.circleStyle][]
       ]
-   , Styles.utilities
-   ]
